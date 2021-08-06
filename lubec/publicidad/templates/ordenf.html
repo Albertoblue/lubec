@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+
+
+{% block main %}
+<div id="app6">
+<header class="mt-3">
+  <h2>{{titulo}}</h2>
+  
+</header>
+<div class="container" >
+
+  <form action="" method="post">
+    {% csrf_token %}
+
+    {{form|bootstrap}}
+    
+    <h2 class="mt-3">Productos</h2>
+    <a @click.prevent="create" class="btn btn-success  mt-3 float-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar producto" ><i class="fas fa-plus-square"></i></a>        
+    <a @click.prevent="eliminar" class="btn mt-3 btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar Producto" ><i class="fas fa-trash-alt"></i></a>
+
+      
+      
+    <div id="form" >
+    <div id="detalle" class="mt-5">
+      <br>
+    
+    
+        {{detalle|bootstrap}}
+
+    </div>
+  </div>
+    <input type="submit" value="Guardar" class="btn btn-primary mt-4">
+  </form>
+  
+</div>
+</div>
+
+{% endblock %}

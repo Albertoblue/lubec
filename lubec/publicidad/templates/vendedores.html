@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+
+<div id="app6">
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        
+        <h2 class="float-left">Vendedores</h2>
+      </div>
+      <div class="col text-right">
+        <a  class="btn btn-success mt-2 float-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Nuevo vendedor" href="{%url 'publicidad:vendedoresForm'%}"><i class="fas fa-plus-square"></i></a>        
+    
+      </div>
+    
+
+    </div>
+  </div>
+
+{%if messages%}
+
+  {%for message in messages%}
+    <div class="alert {%if message.tags%} alert-{{message.tags}}{% endif%}">{{message}}</div>
+
+  {%endfor%}
+
+{%endif%}
+  
+
+<div class="container mt-2" >
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">No. de empleado</th> 
+        <th scope="col">Correo</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+
+            {% for dato in datos%}
+            <tr>
+                <td scope="col">{{dato.id}}</td>
+                <td scope="col">{{dato.nombre}}</td>
+                <td scope="col">{{dato.numeroEmpleado}}</td>
+                <td scope="col">{{dato.email}}</td>
+                <td scope="col">{{dato.telefono}}</td>
+                
+                <td>
+                    
+                    <a id="editar" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar vendedor" href="{% url 'publicidad:editVendedor' id=dato.id%}"><i class="fas fa-user-edit"></i></a>
+                    <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" href="{% url 'publicidad:deleteVendedor' id=dato.id%}"><i class="fas fa-trash-alt"></i></a>
+                    
+                </td>
+            </tr>
+        
+        {%endfor%}
+      </tbody>
+      </table>
+
+ 
+{% endblock %}

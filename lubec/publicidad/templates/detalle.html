@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+
+
+<h2 class="float-left">{{tienda.cliente}}</h2>
+
+
+
+<div class="col text-right">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Descripción</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Ciudad</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td >{{tienda.descripcion}}</td>
+            <td >{{tienda.estado}}</td>
+            <td >{{tienda.ciudad}}</td>
+            
+            </tr>
+    
+          </tbody>
+          </table>   
+
+  </div>
+
+
+<div class="container">
+
+
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio cotizado</th>
+            <th scope="col">Precio de Facturación</th>
+            <th scope="col">Cantidad Reservada</th> 
+            <th scope="col">Cantidad disponible</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td >{{tienda.detalle.producto}}</td>
+            <td >{{tienda.detalle.cantidad}}</td>
+            <td >{{tienda.detalle.precioCotizado}}</td>
+            <td>{{tienda.detalle.precioFacturacion}}</td>
+            <td>{{tienda.detalle.cantidadReservada}}</td>
+            <td>{{tienda.detalle.cantidadDisponible}}</td>
+            
+            </tr>
+    
+          </tbody>
+          </table>   
+
+</div>
+
+
+
+
+
+
+
+
+<div id="app6">
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+            <div class="card-header">Nota</div>
+            <div class="card-body">
+
+             <p>Agregar alguna nota del pedido</p>
+              
+            </div>
+          </div>
+
+        </div>
+    
+
+ 
+      <div class="col text-right">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Descripción</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Ciudad</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td >{{tienda.descripcion}}</td>
+                <td >{{tienda.estado}}</td>
+                <td >{{tienda.ciudad}}</td>
+                
+                </tr>
+        
+              </tbody>
+              </table>   
+    
+      </div>
+    
+
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
+
+<!--
+
+
+
+    <td>
+
+                  
+                  
+                  <a id="editar" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar cliente" href=""><i class="fas fa-user-edit"></i></a>
+                  <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" href=""><i class="fas fa-trash-alt"></i></a>
+                  
+                </td>
+-->

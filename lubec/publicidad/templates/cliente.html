@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+
+<div >
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        
+        <h2 class="float-left">{{dato.nombreComercial}}</h2>
+      </div>
+      <div class="col text-right">
+        
+    
+      </div>
+    
+
+    </div>
+  </div>
+
+{%if messages%}
+
+  {%for message in messages%}
+    <div class="alert {%if message.tags%} alert-{{message.tags}}{% endif%}">{{message}}</div>
+
+  {%endfor%}
+
+{%endif%}
+  
+{% include "partials/tabs.html" with clientes="True" id=id%}
+
+
+
+
+<div class="container mt-2" >
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre Comercial</th>
+        <th scope="col">Razón Social</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Correo</th> 
+        <th scope="col">Tipo de cliente</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td >{{dato.id}}</td>
+        <td >{{dato.nombreComercial}}</td>
+        <td >{{dato.razonSocial}}</td>
+        <td >{{dato.telefono}}</td>
+        <td >{{dato.correo}}</td>
+        <td >{{dato.tipoCliente.descripcion}}</td>
+        <td>
+          
+          <a id="editar" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar cliente" href="{% url 'publicidad:editCliente' id=dato.id%}"><i class="fas fa-user-edit"></i></a>
+          <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" href="{% url 'publicidad:deleteCliente' id=dato.id%}"><i class="fas fa-trash-alt"></i></a>
+          
+        </td>
+        </tr>
+
+      </tbody>
+      </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,105 @@
+<a class="btn btn-success mt-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar orden"href="{% url 'publicidad:formOrden' %}"><i class="fas fa-plus-square"></i></a>
+
+<div id="app4">
+  
+  <table class="table mt-2">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Orden</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Numero de contrato</th>
+        <th scope="col">Numero de campaña</th>
+        <th scope="col">Tienda</th>
+        <th scope="col">Status</th>
+        <th scope="col">MU</th>
+        <th scope="col">CA</th>
+        <th scope="col">SE</th>
+        <th scope="col">Monto</th>
+        <th scope="col">Detalle</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        
+        <td>Orden 68058</td>
+        <td>Walmart</td>
+        <td>0000000001</td>
+        <td>0000000001</td>
+        <td>Walmart NuevoLeon</td>
+        <td><span class="badge bg-danger">No Aprobado</span></td>
+        <td>5</td>
+        <td>10</td>
+        <td>20</td>
+        <td>$10,000</td>
+        <td>
+          <a  data-bs-toggle="tooltip" data-bs-placement="top" title="ver" href=""><i class="fas fa-eye fa-2x" style="color:rgb(29, 15, 15)"></i></a>
+          <a id="app1" id="editar" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar orden" href="{% url 'publicidad:formOrden' %}"><i class="fas fa-user-edit fa-2x"></i></a>
+          <a  data-bs-toggle="tooltip" data-bs-placement="top" title="aprobar" href="{% url 'publicidad:detalle_orden'%}"><i class="fas fa-clipboard-check fa-2x" style="color:green;"></i></a>
+        </td>
+      </tr>
+      <tr>
+        
+        <td>Orden 89058</td>
+        <td>Sams</td>
+        <td>0000000002</td>
+        <td>0000000005</td>
+        <td>Sams El carmen</td>
+        <td><span class="badge bg-success">Aprobado</span></td>
+        <td>5</td>
+        <td>10</td>
+        <td>20</td>
+        <td>$10,000</td>
+        <td>
+          <a  data-bs-toggle="tooltip" data-bs-placement="top" title="ver" href=""><i class="fas fa-eye fa-2x" style="color:rgb(29, 15, 15)"></i></a>
+          <a id="app1" id="editar" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar orden" href="{% url 'publicidad:formOrden' %}"><i class="fas fa-user-edit fa-2x"></i></a>
+          <a  data-bs-toggle="tooltip" data-bs-placement="top" title="No aprobar" href="{% url 'publicidad:detalle_orden'%}"><i class="fas fa-times-circle fa-2x" style="color:red;"></i></a>
+        </td>
+      </tr>
+      
+      <tr>
+        
+        <td>Orden 09382</td>
+        <td>Soriana</td>
+        <td>0000000001</td>
+        <td>0000000001</td>
+        <td>Soriana NuevoLeon</td>
+        <td><span class="badge bg-danger">No Aprobado</span></td>
+        <td>5</td>
+        <td>10</td>
+        <td>20</td>
+        <td>$10,000</td>
+        <td>
+          <a  data-bs-toggle="tooltip" data-bs-placement="top" title="ver" href=""><i class="fas fa-eye fa-2x" style="color:rgb(29, 15, 15)"></i></a>
+          <a id="app1" id="editar" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar orden" href="{% url 'publicidad:formOrden' %}"><i class="fas fa-user-edit fa-2x"></i></a>
+          <a  data-bs-toggle="tooltip" data-bs-placement="top" title="No aprobar" href="{% url 'publicidad:detalle_orden'%}"><i class="fas fa-times-circle fa-2x" style="color:red;"></i></a>
+        </td>
+      </tr>
+      
+      <tr>
+        
+        <td>Orden 90635</td>
+        <td>Papelerias Tony</td>
+        <td>0000000008</td>
+        <td>0000000010</td>
+        <td>Tony El carmen</td>
+        <td><span class="badge bg-success">Aprobado</span></td>
+        <td>5</td>
+        <td>10</td>
+        <td>20</td>
+        <td>$10,000</td>
+        <td>
+          <a  data-bs-toggle="tooltip" data-bs-placement="top" title="ver" href=""><i class="fas fa-eye fa-2x" style="color:rgb(29, 15, 15)"></i></a>
+          <a id="app1" id="editar" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar orden" href="{% url 'publicidad:formOrden' %}"><i class="fas fa-user-edit fa-2x"></i></a>
+          <a  data-bs-toggle="tooltip" data-bs-placement="top" title="aprobar" href="{% url 'publicidad:detalle_orden'%}"><i class="fas fa-clipboard-check fa-2x" style="color:green;"></i></a>
+          
+        </td>
+      </tr>
+      
+      
+    </tbody>
+    
+    
+  </table>
+  
+</div>

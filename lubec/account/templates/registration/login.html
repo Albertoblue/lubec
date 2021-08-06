@@ -1,0 +1,50 @@
+{% extends "base_user_account.html" %}
+
+{% load bootstrap %}
+
+{% block content %}
+
+
+
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    <div class="login-form">
+
+        {% if next %}
+        Si quieres acceder a {{ next }} 
+        <h3>¡Autenticate!</h3>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+            {% include "partials/alert.html" with msj="Estas autenticado" %}
+        {% else %}
+            {% include "partials/alert.html" with msj="No estas autenticado" tag="warning" %}
+        {% endif %}
+
+        {% if form.errors %}
+            {% include "partials/alert.html" with msj="Usuario y/o contraseña incorrecta" tag="danger" %}
+        {% endif %}
+
+        
+
+        {{ form.username | bootstrap }}
+
+        {{ form.password | bootstrap }}
+        <br>
+        <input type="submit" value="login" class="btn btn-success float-right">
+        <input type="hidden" name="next" value="{{ next }}">
+
+</form>
+</div>
+
+
+
+<div class="clearfix"></div>
+<br>
+<a href="{% url 'password_reset' %}">Olvidé contraseña</a>
+
+<a class="float-right" href="{% url 'account:register' %}">Registrar</a>
+
+{% endblock %}

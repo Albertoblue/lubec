@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+<div class="content mt-3">
+
+<fieldset disabled>
+    <legend>Orden de venta</legend>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Numero de contrato</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="0000087363">
+    </div>
+
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Numero de campaña</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="0000094826">
+    </div>
+</fieldset>
+
+
+<div class="form-floating">
+  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+    <option selected>Selecciona un cliente</option>
+    <option value="1">Walmart</option>
+    <option value="2">Soriana</option>
+    <option value="3">Tony</option>
+  </select>
+  <label for="floatingSelect">Cliente</label>
+</div>
+
+<div class="form-floating mt-3">
+  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+    <option selected>Selecciona una tienda</option>
+    <option value="1">Walmart NuevoLeon</option>
+    <option value="2">Sams El carmen</option>
+    <option value="3">Tony El carmen</option>
+  </select>
+  <label for="floatingSelect">Tienda</label>
+</div>
+
+<div class="form-floating mt-3">
+  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+    <option selected>Selecciona un vendedor</option>
+    <option value="1">Jose Hernandez Garcia</option>
+    <option value="2">Emilio Ruiz Sanchez</option>
+    <option value="3">Antonio Perez Perez</option>
+  </select>
+  <label for="floatingSelect">Vendedor</label>
+</div>
+
+
+  <a href="{%url 'publicidad:ordenes'%}" class="btn btn-primary mt-3 ">Guardar</a>
+</div>
+<br>
+<br>
+<!--
+<div class="col-md-4 mb-3 mt-3">
+  <label for="validationTooltipUsername">Monto</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="validationTooltipUsernamePrepend">$</span>
+    </div>
+    <input type="number" class="form-control" id="validationTooltipUsername" placeholder="Monto" aria-describedby="validationTooltipUsernamePrepend" required>
+    <div class="invalid-tooltip">
+      Please choose a unique and valid username.
+    </div>
+  </div>
+</div>
+
+<div class="form-floating">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+  <label for="floatingPassword">Password</label>
+</div>
+
+
+
+
+
+
+
+    <div class="mb-3">
+      <label for="disabledSelect" class="form-label">Disabled select menu</label>
+      <select id="disabledSelect" class="form-select">
+        <option>Disabled select</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+        <label class="form-check-label" for="disabledFieldsetCheck">
+          Can't check this
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+
+<div class="form-floating mb-3">
+    <input class="form-control" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled>
+    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Email address</label>
+  
+
+</div>
+  <div class="form-floating">
+    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+    <label for="floatingPassword">Password</label>
+</div>
+
+-->
+
+{% endblock %}

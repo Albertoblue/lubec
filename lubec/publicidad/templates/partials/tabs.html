@@ -1,0 +1,25 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link {%if clientes%}active{%endif%}" aria-current="page" href="{%url 'publicidad:cliente' id=id%}">Cliente</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link {%if sA%}active{%endif%}" href="{%url 'publicidad:sA' id=id%}">Ordenes</a>
+    </li>
+
+
+    <li class="nav-item">
+      <a class="nav-link {%if contratos%}active{%endif%}" href="{%url 'publicidad:contratos' id=id%}">Contratos</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link {%if campa%}active{%endif%}"href="{%url 'publicidad:campa' id=id %}">Campañas</a>
+    </li>
+
+    <!--
+
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+    -->
+  </ul>

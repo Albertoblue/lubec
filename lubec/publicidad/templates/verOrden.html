@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+<br>
+<br>
+
+<div class="row section">
+
+	<div class="col-2">
+    <h2>{{titulo}}</h2>
+  </div><!--.col-->
+
+  <div class="col-2 text-right details">
+    <p contenteditable>
+      <strong>Fecha de inicio:</strong> {{tran.fechaInicio}}<br>
+      <strong>Fecha final</strong>  {{tran.fechaFinal}}<br>
+    </p>
+  </div><!--.col-->
+  
+  
+  
+  <div class="col-2">
+
+      <p >
+        <strong>Cliente:</strong> {{tran.cliente}}<br>
+        <strong>Tienda:</strong>{{tran.tienda}}<br>
+      </p>
+
+  </div><!--.col-->
+  
+  
+  <div class="col-2">
+   
+
+    <p class="client">
+      <strong>Vendedor:</strong> {{tran.vendedor}}<br>
+    </p>
+  </div><!--.col-->
+
+  
+
+</div>
+
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header">Descripción</div>
+  <div class="card-body">
+    <p class="card-text">{{tran.descripcion}}</p>
+  </div>
+</div>
+
+
+<div class="container">
+
+
+
+    
+    {%if detalles%}
+    <h2 class="mt-4">Productos</h2>
+    <table class="table">
+
+      <thead class="table-dark">
+        <tr>
+        <th scope="col">Producto</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Precio cotizado</th>
+        <th scope="col">Precio de facturación</th>
+        <th scope="col">Cantidad reservada</th>
+        <th scope="col">Cantidad disponible</th>
+      </tr>
+      </thead>
+
+      <tbody>
+        {%for detalle in detalles%}
+        <tr>
+          <td>{{detalle.producto}}</td>
+          <td>{{detalle.cantidad}}</td>
+          <td>{{detalle.precioCotizado}}</td>
+          <td>{{detalle.precioFacturacion}}</td>
+          <td>{{detalle.cantidadReservada}}</td>
+          <td>{{detalle.cantidadDisponible}}</td>
+        </tr>
+      
+      {%endfor%}
+
+
+      </tbody>
+
+
+    </table>
+      
+    {%endif%}
+   
+ 
+</div>
+
+
+{% endblock %}

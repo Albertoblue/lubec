@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Cadenas</th>
+        <th scope="col">Status</th>
+        <th scope="col">Detalles</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        
+        <td>Heb</td>
+        <td><i class="fas fa-check-circle"></i></td>
+        <td><a class="btn btn-primary" href="http://">Ver tiendas</a></td>
+      </tr>
+      <tr>
+       
+        <td>Walmart</td>
+        <td><i class="fas fa-check-circle"></i></td>
+        <td><a class="btn btn-primary" href="http://">Ver tiendas</a></td>
+      </tr>
+      <tr>
+        
+        <td>Soriana</td>
+        <td><i class="fas fa-check-circle"></i></td>
+        <td><a class="btn btn-primary" href="http://">Ver tiendas</a></td>
+      </tr>
+    </tbody>
+
+    <tr>
+        
+        <td>Elemental</td>
+        <td><i class="fas fa-check-circle"></i></td>
+        <td><a class="btn btn-primary" href="http://">Ver tiendas</a></td>
+      </tr>
+  </table>
+
+{% else %}
+<p><a href="{% url 'login' %}">Login</a></p>
+{% endif %}
+
+
+
+{% endblock %}

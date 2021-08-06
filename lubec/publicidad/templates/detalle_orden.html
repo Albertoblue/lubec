@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+
+
+<div id="app6">
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        
+        <h2 class="float-left">{{trans.tienda}}</h2>
+      </div>
+      <div class="col text-right">
+        
+    
+      </div>
+    
+
+    </div>
+  </div>
+
+{%if messages%}
+
+  {%for message in messages%}
+    <div class="alert {%if message.tags%} alert-{{message.tags}}{% endif%}">{{message}}</div>
+
+  {%endfor%}
+
+{%endif%}
+  
+
+
+
+
+<div class="container mt-2" >
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+     <th scope="col">Numero de orden</th> 
+     <th scope="col">Numero de contrato</th> 
+     <th scope="col">Numero de campaña</th> 
+    
+  
+        <th scope="col">Tienda</th>
+        <th scope="col">Descripcion</th> 
+        <th scope="col">Fecha de alta</th>
+        <th scope="col">Fecha de inicio</th>
+        <th scope="col">Fecha Final</th>
+        <th scope="col">status</th>
+        <th scope="col">Vendedor</th>
+        <th scope="col">Tipo de documento</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+  
+     
+  
+  
+      
+    
+      <tr>
+        <td >{{trans.id}}</td>
+  
+
+   
+        
+   
+        
+        <td>{{trans.orden}}</td> 
+        <td>{{trans.contrato}}</td>
+        <td>{{trans.campana}}</td>
+        
+        
+        <td>{{trans.tienda}}</td>
+        <td>{{trans.descripcion}}</td>
+        <td>{{trans.fecha}}</td>
+        <td>{{trans.fechaInicio}}</td>
+        <td>{{trans.fechaFinal}}</td>
+        <td>{{trans.status}}</td>
+        <td>{{trans.vendedor}}</td>
+        <td>{{trans.documento}}</td>
+     </tr>
+     </table>  
+
+
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Precio Cotizado</th>
+        <th scope="col">Precio Facturación</th> 
+        <th scope="col">Cantidad Reservada</th>
+        <th scope="col">Cantidad Disponible</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for dato in detalles%}
+      <tr>
+        <td >{{dato.id}}</td>
+        <td >{{dato.producto}}</td>
+        <td >{{dato.precioCotizado}}</td>
+        <td >{{dato.precioFacturacion}}</td>
+        <td >{{dato.cantidadReservada}}</td>
+        <td >{{dato.cantidadDisponible}}</td>
+        </tr>
+        {%endfor%}
+
+      </tbody>
+      </table>
+    </div>
+    
+
+{% endblock %}
+
+

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+
+<div id="app6">
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        
+        <h2 class="float-left">Productos</h2>
+      </div>
+      <div class="col text-right">
+        <a  class="btn btn-success mt-2 float-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Nuevo producto" href="{%url 'publicidad:productoForm'%}"><i class="fas fa-plus-square"></i></a>        
+    
+      </div>
+    
+
+    </div>
+  </div>
+
+{%if messages%}
+
+  {%for message in messages%}
+    <div class="alert {%if message.tags%} alert-{{message.tags}}{% endif%}">{{message}}</div>
+
+  {%endfor%}
+
+{%endif%}
+  
+
+
+
+
+
+<div class="container mt-2" >
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Espacios disponibles</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dato in datos%}
+      <tr>
+        <td >{{dato.id}}</td>
+        <td >{{dato.descripcion}}</td>
+        <td >{{dato.espaciosDisponibles}}</td>
+        <td>
+          
+          <a id="editar" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar producto" href="{% url 'publicidad:editProducto' id=dato.id%}"><i class="fas fa-user-edit"></i></a>
+          <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar producto" href="{% url 'publicidad:deleteProducto' id=dato.id%}"><i class="fas fa-trash-alt"></i></a>
+          
+        </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+      </table>
+
+{% endblock %}

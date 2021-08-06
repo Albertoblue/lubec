@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+
+<div id="app6">  
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        
+        <h2 class="float-left">Clientes</h2>
+      </div>
+      <div class="col text-right">
+        <a  class="btn btn-success mt-2 float-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Nuevo cliente" href="{%url 'publicidad:formCliente'%}"><i class="fas fa-plus-square"></i></a>        
+    
+      </div>
+    
+
+    </div>
+  </div>
+
+{%if messages%}
+
+  {%for message in messages%}
+    <div class="alert {%if message.tags%} alert-{{message.tags}}{% endif%}">{{message}}</div>
+
+  {%endfor%}
+
+{%endif%}
+  
+
+
+
+
+
+<div class="container mt-2" >
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre Comercial</th>
+        <th scope="col">Razón Social</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Correo</th> 
+        <th scope="col">Tipo de cliente</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dato in datos%}
+      <tr>
+        <td >{{dato.id}}</td>
+        <td ><a href="{%url 'publicidad:cliente' id=dato.id%}">{{dato.nombreComercial}}</a></td>
+        <td >{{dato.razonSocial}}</td>
+        <td >{{dato.telefono}}</td>
+        <td >{{dato.correo}}</td>div
+        <td >{{dato.tipoCliente.descripcion}}</td>
+        <td>
+          
+          <a @click.prevent="presioname({{dato.id}})" id="editar" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar cliente" href="{% url 'publicidad:editCliente' id=dato.id%}"><i class="fas fa-user-edit"></i></a>
+          <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" href="{% url 'publicidad:deleteCliente' id=dato.id%}"><i class="fas fa-trash-alt"></i></a>
+          
+        </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+      </table>
+
+
+
+
+      <!-- Modal -->
+<div class="modal fade" id="modalEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div  v-if =`${registro}` class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Editar Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="post">
+          {% csrf_token %}
+          {{form|bootstrap}}
+          <input type="submit" value="Guardar" class="btn btn-primary mt-2">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>     
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      
+      <h2 class="float-left">{{dato.nombreComercial}}</h2>
+    </div>
+    <div class="col text-right">
+      <a  class="btn btn-success mt-2 float-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Nueva orden" href="{%url 'publicidad:transaccionesForm'%}"><i class="fas fa-plus-square"></i></a>        
+  
+    </div>
+  
+
+  </div>
+
+
+{% include "partials/tabs.html" with contratos="True" id=dato.id%}
+<div id="app6">
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col text-right">
+  
+    </div>
+  
+
+  </div>
+</div>
+
+{%if messages%}
+
+{%for message in messages%}
+  <div class="alert {%if message.tags%} alert-{{message.tags}}{% endif%}">{{message}}</div>
+
+{%endfor%}
+
+{%endif%}
+
+
+<div class="container mt-2" >
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+
+  {%ifequal documento "Ordenes"%} 
+   <th scope="col">Numero de orden</th> 
+   {%endifequal%}
+
+   {%ifequal documento "Contratos"%} 
+   <th scope="col">Numero de orden</th> 
+   <th scope="col">Numero de contrato</th> 
+   {%endifequal%}
+
+   
+
+   {%ifequal documento "Campañas"%} 
+   <th scope="col">Numero de orden</th> 
+   <th scope="col">Numero de contrato</th> 
+   <th scope="col">Numero de campaña</th> 
+   {%endifequal%}
+
+      <th scope="col">Tienda</th>
+      <th scope="col">Descripcion</th> 
+      <th scope="col">Fecha de alta</th>
+      <th scope="col">Fecha de inicio</th>
+      <th scope="col">Fecha Final</th>
+      <th scope="col">status</th>
+      <th scope="col">Vendedor</th>
+      <th scope="col">Tipo de documento</th>
+      <th scope="col">Acciones</th>
+      <th>Nuevo producto</th>
+
+      {%ifequal documento "Ordenes"%} 
+      <th scope="col">Aprobar</th>
+      {%endifequal%}
+ 
+      {%ifequal documento "Contratos"%} 
+      <th scope="col">Aprobar</th>
+      {%endifequal%}
+      
+    </tr>
+  </thead>
+  <tbody>
+
+   
+
+
+    
+    {% for dato in datos%}
+    <tr>
+      <td >{{dato.id}}</td>
+
+      {%ifequal documento "Ordenes"%} 
+      <td>{{dato.orden}}</td>
+      {%endifequal%}
+ 
+      {%ifequal documento "Contratos"%} 
+      <td>{{dato.orden}}</td>
+      <td>{{dato.contrato}}</td>
+      {%endifequal%}
+ 
+      
+ 
+      {%ifequal documento "Campañas"%} 
+      <td>{{dato.orden}}</td> 
+      <td>{{dato.contrato}}</td>
+      <td>{{dato.campana}}</td>
+      {%endifequal%}
+      
+      <td>{{dato.tienda}}</td>
+      <td>{{dato.descripcion}}</td>
+      <td>{{dato.fecha}}</td>
+      <td>{{dato.fechaInicio}}</td>
+      <td>{{dato.fechaFinal}}</td>
+      <td>{{dato.status}}</td>
+      <td>{{dato.vendedor}}</td>
+      <td>{{dato.documento}}</td>
+     
+      <td>
+        
+        <a id="editar" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar orden" href="{% url 'publicidad:editOrden' id=dato.id%}"><i class="fas fa-user-edit"></i></a>
+        <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar orden" href="{% url 'publicidad:deleteOrden' id=dato.id%}"><i class="fas fa-trash-alt"></i></a>
+       
+      </td>
+
+      <td>
+       
+        <a  class="btn btn-success mt-2 float-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Nuevo producto" href="{%url 'publicidad:formDetalleO' id=dato.id%}"><i class="fas fa-plus-square"></i></a>        
+        
+      </td>
+      <td>
+        {%ifequal documento "Ordenes"%} 
+        <a  data-bs-toggle="tooltip" data-bs-placement="top" title="aprobar" href="{% url 'publicidad:aprobarContrato' id=dato.id%}"><i class="fas fa-clipboard-check fa-2x" style="color:green;"></i></a>
+        {%endifequal%}
+   
+        {%ifequal documento "Contratos"%} 
+        <a  data-bs-toggle="tooltip" data-bs-placement="top" title="aprobar" href="{% url 'publicidad:aprobarContrato' id=dato.id%}"><i class="fas fa-clipboard-check fa-2x" style="color:green;"></i></a>
+        {%endifequal%}
+   
+       
+      </td>
+      </tr>
+       {%endfor%}
+      
+    </tbody>
+    </table>
+</div> 
+
+{% endblock %}

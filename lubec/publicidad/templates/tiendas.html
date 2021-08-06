@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+
+{% block main %}
+
+<div id="app6">
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        
+        <h2 class="float-left">Tiendas</h2>
+      </div>
+      <div class="col text-right">
+        <a  class="btn btn-success mt-2 float-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Nueva tienda" href="{%url 'publicidad:tiendasForm'%}"><i class="fas fa-plus-square"></i></a>        
+    
+      </div>
+    
+
+    </div>
+  </div>
+
+{%if messages%}
+
+  {%for message in messages%}
+    <div class="alert {%if message.tags%} alert-{{message.tags}}{% endif%}">{{message}}</div>
+
+  {%endfor%}
+
+{%endif%}
+  
+<div class="container mt-2" >
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Ciudad</th> 
+        <th scope="col">Acciones</th>
+        <th scope="col">Nuevo Producto</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dato in datos%}
+      <tr>
+        <td >{{dato.id}}</td>
+        <td ><a href="{%url 'publicidad:detalle' id=dato.id%}">{{dato.cliente}}</a></td>
+        <td >{{dato.descripcion}}</td>
+        <td >{{dato.estado}}</td>
+        <td >{{dato.ciudad}}</td>
+        <td>
+          
+          <a id="editar" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar tienda" href="{% url 'publicidad:ediTienda' id=dato.id%}"><i class="fas fa-user-edit"></i></a>
+          <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar" href="{% url 'publicidad:deleteTienda' id=dato.id%}"><i class="fas fa-trash-alt"></i></a>
+          
+        </td>
+        <td>
+          <a  class="btn btn-success  float-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar producto" href="{%url 'publicidad:formDetalle' id=dato.id%}"><i class="fas fa-plus-square"></i></a>        
+        </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+      </table>
+</div>   
+
+{%endblock%}
+
+
+
+
+
+<!--
+
+
+  
+  <div id="app6">
+    
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          
+          <h2 class="float-left">Tiendas</h2>
+        </div>
+        <div class="col text-right">
+          <a  class="btn btn-success mt-2 float-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Nueva Tienda" href="{%url 'publicidad:tiendasForm'%}"><i class="fas fa-plus-square"></i></a>        
+          
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="container mt-2">
+      
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Tienda de Autoservicio</th>
+            <th scope="col">Medios contratados</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td>HEB</td>
+            
+            <td>
+              <span class="badge bg-primary">MUPPI</span>
+              <span class="badge bg-dark">SENSORES</span>
+              <span class="badge bg-secondary">CARRITO</span>
+              <span class="badge bg-primary">PENDONES</span>
+              <span class="badge bg-dark">Bandas</span>
+            </tr>
+            
+          </tbody>
+        </table>
+        
+        <nav aria-label="...">
+          <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+        
+        
+        
+      </div>
+      
+    -->
+      
+      
+      
+      
+      
